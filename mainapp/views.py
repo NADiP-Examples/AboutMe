@@ -1,6 +1,5 @@
 import datetime
 from django.shortcuts import render, render_to_response, Http404
-from .models import Work
 
 
 def main(request):
