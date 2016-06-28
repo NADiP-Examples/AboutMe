@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% for study_place in study_places %}
+        <div class="block">
+            <div class="header">
+                {{ study_place.date_from.year }} - {{ study_place.date_to.year }}
+            </div>
+            <div class="desc">
+                {{ study_place.place }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

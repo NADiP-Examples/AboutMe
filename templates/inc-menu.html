@@ -1,0 +1,13 @@
+<div class="row menu">
+    <ul class="nav nav-tabs">
+        <li class="{% if not page %}active{% endif %}">
+            <a href="/">Home</a>
+        </li>
+         <li class="{% if page == 'works' %}active{% endif %}">
+            <a href="/works">Работа</a>
+        </li>
+         <li class="{% if page == 'learns' %}active{% endif %}">
+            <a href="/learns">Учеба</a>
+        </li>
+    </ul>
+</div>

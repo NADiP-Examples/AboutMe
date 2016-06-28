@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AboutME | Home
+    </title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    {% block css %}
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/static/css/style.css"/>
+    {% endblock %}
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <a href="/">
+            <div class="row">
+                <h1><img class="logo" src="/static/img/about_me-logo.png"> About me</h1>
+            </div>
+        </a>
+    </div>
+    {%  include 'inc-menu.html' %}
+
+    <div class="row content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="modal-footer">
+        &copy; 2016 Booblegum
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if not works %}
+        Я еще нигде не работал
+    {% endif %}
+
+    {% for work in works %}
+        <div class="block">
+            <div class="header">
+                {{ work.header }}
+            </div>
+            <div class="post">
+                Должность: {{ work.post }}
+            </div>
+            <div class="desc">
+                {{ work.desc }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
