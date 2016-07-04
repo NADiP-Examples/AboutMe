@@ -1,35 +1,40 @@
-from django.core.management.base import NoArgsCommand, CommandError
+from django.core.management.base import NoArgsCommand, BaseCommand
 from mainapp.models import Work, Hobby, Study, Organization
 from datetime import date
 
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     help = 'Fill DB new data'
 
-    def handle_noargs(self, **options):
+    def handle(self, *args, **options):
         organizations = [
-            {'name': 'ООО "СтройКопай"', 'region': 'Москва', 'tax_id': 123456, 'site': 'build_dig.com'},
-            {'name': 'ИП "Иванушка"', 'region': 'Подмосковье', 'tax_id': 666122, 'site': ''},
+            {'name': 'Skyparkcdn', 'region': 'Пермь', 'tax_id': 123456, 'site': 'https://www.skyparkcdn.com/'},
+            {'name': 'ООО Транио', 'region': 'москва', 'tax_id': 666122, 'site': 'https://www.tranio.ru/'},
             {'name': 'GeekBrains', 'region': 'Москва', 'tax_id': 123456, 'site': 'geekbrains.ru'},
 
         ]
         works = [
-            {'organization': 'ООО "СтройКопай"', 'position': 'digger',
-             'duties': 'В основном копал...', 'period': 6},
-            {'organization': 'ИП "Иванушка"', 'position': 'assistant',
-             'duties': '...', 'period': 4},
+            {'organization': 'Skyparkcdn', 'position': 'Программист-разработчик',
+             'duties': 'Разработка серверной(nodejs) и клиентской(angularJS) частей веб-сервисов.Написание '
+                       'микро-сервисов для работы с MongoDB (REST архитектура).Верстка по предоставленным '
+                       'макетам (Bootstrap)', 'period': 6},
+            {'organization': 'ООО Транио', 'position': 'Программист Python',
+             'duties': 'Доработка функциональности сайта. Backend разработка - Django,Frontend - javascript и '
+                       'верстка по предоставленным шаблонам.', 'period': 4},
             {'organization': 'GeekBrains', 'position': 'teacher',
-             'duties': 'Пдготовка и преподавание курсов python/django', 'period': 12},
+             'duties': 'Подготовка и преподавание курсов python/django', 'period': 12},
         ]
         hobbies = [
             {'name': 'tourism'},
             {'name': 'programming'},
-            {'name': 'digging -)'},
         ]
         studies = [
-            {'type': 'school', 'number': 36, 'study_from': date(1990, 9, 1), 'study_to': date(1998, 6, 1)},
-            {'type': 'lyceum', 'number': 66, 'study_from': date(1998, 9, 1), 'study_to': date(2001, 6, 1)},
-            {'type': 'university', 'number': 0, 'study_from': date(2001, 9, 1), 'study_to': date(2006, 8, 1)},
+            {'type': 'school', 'number': 36,
+'study_from': date(1989, 9, 1), 'study_to': date(1997, 6, 1)},
+            {'type': 'lyceum', 'number': 84,
+'study_from': date(1997, 9, 1), 'study_to': date(2000, 6, 1)},
+            {'type': 'university', 'number': 0,
+'study_from': date(2000, 9, 1), 'study_to': date(2005, 8, 1)},
         ]
         for organization in organizations:
             organization = Organization(**organization)

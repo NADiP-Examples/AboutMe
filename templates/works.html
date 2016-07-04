@@ -8,13 +8,15 @@
     {% for work in works %}
         <div class="block">
             <div class="header">
-                {{ work.header }}
+                <a href="/work/{{ work.id }}">
+                    {{ work.organization.name }}
+                </a>
             </div>
             <div class="post">
-                Должность: {{ work.post }}
+                Должность: {{ work.position }}
             </div>
             <div class="desc">
-                {{ work.desc }}
+                {{ work.duties }}
             </div>
         </div>
     {% endfor %}

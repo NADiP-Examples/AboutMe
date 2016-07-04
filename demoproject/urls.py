@@ -19,5 +19,6 @@ from mainapp.views import *
 urlpatterns = [
     url(r'^$', main),
     url(r'^works$', works),
+    url(r'^work/(\d)/$', work),
     url(r'^learns$', learn),
 ]

@@ -1,10 +1,10 @@
-from django.core.management.base import NoArgsCommand
+from django.core.management.base import NoArgsCommand, BaseCommand
 from IPython.terminal.embed import InteractiveShellEmbed
 from django.db.models import Model
 
 
-class Command(NoArgsCommand):
-    def handle_noargs(self, **options):
+class Command(BaseCommand):
+    def handle(self, *args, **options):
         modules = ('mainapp.models',)
         for module in modules:
             m = __import__(module, fromlist='non-empty')
